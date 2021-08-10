@@ -146,7 +146,11 @@ func main() {
     return nil
   }
 
-  proxy := &httputil.ReverseProxy{Director: director, ModifyResponse: modifyResponse}
+  errorHandler := func(rw http.ResponseWriter, r *http.Request, err error) {
+    log.Printf("Proxy error: %+v for path %s.", err, r.URL.Path);
+  }
+
+  proxy := &httputil.ReverseProxy{Director: director, ModifyResponse: modifyResponse, ErrorHandler: errorHandler}
 
   http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
     proxy.ServeHTTP(w, req)
