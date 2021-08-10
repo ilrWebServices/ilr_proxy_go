@@ -47,7 +47,8 @@ var drupal_latest_paths = []string {
   "/sites/default/files-d8",
   "/system/files/webform",
   "/media/oembed",
-  "/modules/contrib/better_social_sharing_buttons/assets",
+  "/modules/contrib",
+  "/modules/custom",
 }
 
 var shared_paths = []string {
