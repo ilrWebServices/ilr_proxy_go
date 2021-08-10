@@ -49,6 +49,7 @@ var drupal_latest_paths = []string {
   "/media/oembed",
   "/modules/contrib",
   "/modules/custom",
+  "/webform",
 }
 
 var shared_paths = []string {
