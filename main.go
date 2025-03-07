@@ -113,7 +113,13 @@ func main() {
 			forwarded_proto = "http"
 		}
 
-		// req.Header.Add("X-Forwarded-Host", req.Host)
+		// Check if there is an incoming X-Forwarded-Host header value.
+		forwarded_host := req.Header.Get("X-Forwarded-Host")
+
+		if forwarded_host == "" {
+			req.Header.Add("X-Forwarded-Host", req.Host)
+		}
+
 		// req.Header.Add("X-Forwarded-Proto", forwarded_proto)
 		req.URL.Scheme = target.Scheme
 		req.URL.Host = target.Host
