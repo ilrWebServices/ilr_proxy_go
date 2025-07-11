@@ -1,6 +1,6 @@
 # ILR Reverse Proxy (go version)
 
-This is a simple proxy to allow www.ilr.cornell.edu to use multiple sources for different paths of the site.
+This is a simple proxy for the D7 legacy ILR site. It is used by Varnish to return the remaining D7 content to our main site.
 
 ## Usage
 
@@ -9,7 +9,6 @@ Configuration is set via environment variables. For example:
 ```
 LISTEN=localhost \
 PORT=9700 \
-DRUPAL_LATEST_URL=http://drupal.ilr.test \
 DRUPAL_LEGACY_URL=http://d7.ilr.test \
 ./bin/proxy
 ```
@@ -19,8 +18,6 @@ The following environment variables are available:
 `LISTEN` - The network address to listen on. Defaults to `0.0.0.0` if not set. Set this to `localhost` for testing or local development.
 
 `PORT` - The port to listen on. Required.
-
-`DRUPAL_LATEST_URL` - The base URL of the upstream primary Drupal site, e.g. `https://d8-edit.ilr.cornell.edu`. Required.
 
 `DRUPAL_LEGACY_URL` - The base URL of the upstream legacy Drupal site, e.g. `https://d7-edit.ilr.cornell.edu`. Required.
 
@@ -35,7 +32,7 @@ go build -o ./bin/proxy main.go
 You can quickly test during development with a command like this:
 
 ```
-LISTEN=localhost PORT=9700 DRUPAL_LATEST_URL=http://drupal.ilr.test DRUPAL_LEGACY_URL=http://d7.ilr.test go run main.go
+LISTEN=localhost PORT=9700 DRUPAL_LEGACY_URL=http://d7.ilr.test go run main.go
 ```
 
 ## Notes
