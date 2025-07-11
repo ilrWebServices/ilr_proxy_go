@@ -15,12 +15,14 @@ var drupal_latest_url, drupal_legacy_url *url.URL
 var drupal_legacy_paths = []string{
 	"/buffalo/about",
 	"/conference-center",
+	"/centers-institutes/conference-centers",
 	"/eform",
 	"/faculty-and-staff-resources",
 	// This one needs authentication.
 	"/faculty-reporting",
 	"/ilr-in-buffalo",
 	"/ilr-press",
+	"/ilr-review",
 	"/misc",
 	"/modules/node",
 	"/modules/system",
